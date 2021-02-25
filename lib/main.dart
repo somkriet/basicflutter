@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "My App",
       home: MyHomePage(),
-      theme: ThemeData(primarySwatch: Colors.pink),
+      theme: ThemeData(primarySwatch: Colors.lightBlue),
     );
   }
 }
@@ -38,23 +38,23 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("เลือกเมนูอาหาร"),
+          title: Text("บัญชีของฉัน"),
         ),
-        body: ListView.builder(
-            itemCount: menu.length,
-            itemBuilder: (BuildContext context, int index) {
-              Foodmenu food = menu[index];
-              return ListTile(
-                leading: Image.asset(food.img),
-                title: Text(
-                  food.name,
-                  style: TextStyle(fontSize: 30),
-                ),
-                subtitle: Text("ราคา " + food.price + " บาท"),
-                onTap: () {
-                  print("คุณเลือกเมนูอาหารชื่อว่า = " + food.name);
-                },
-              );
-            }));
+        body: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(color: Colors.green),
+              height: 150,
+            ),
+            newMethod()
+          ],
+        ));
+  }
+
+  Container newMethod() {
+    return Container(
+      decoration: BoxDecoration(color: Colors.lightBlue),
+      height: 150,
+    );
   }
 }
